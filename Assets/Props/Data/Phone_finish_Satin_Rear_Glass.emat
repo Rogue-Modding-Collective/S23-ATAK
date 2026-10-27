@@ -1,0 +1,4 @@
+MatPBRBasic {
+ BCRMap "{6EEFAA6524AA5786}Assets/Props/ATAK_Satin_Rear_Glass_BCR.edds"
+ NMOMap "{563711F7FDDD0518}Assets/Props/ATAK_Satin_Rear_Glass_NMO.edds"
+}

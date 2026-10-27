@@ -1,0 +1,4 @@
+MatPBRBasic {
+ BCRMap "{5B23E397E777A2F9}Assets/Props/ATAK_Subdued_Flash_BCR.edds"
+ NMOMap "{63FB58053E00F067}Assets/Props/ATAK_Subdued_Flash_NMO.edds"
+}

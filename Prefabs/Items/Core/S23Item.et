@@ -1,0 +1,27 @@
+GenericEntity : "{C95E11C60810F432}Prefabs/Items/Core/Item_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "S23 ATAK"
+     Description "A Samsung S23 with ATAK"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes PhysicalAttributes {
+     Weight 0.168
+     RestingUP Forward
+    }
+    m_eQuickSlotSize SLOT_1x1
+    m_bStackable 0
+   }
+  }
+  MeshObject "{6AB681BBF8E022EB}" {
+   Object "{10E797F0D6647317}Assets/Props/ATAK_Phone.xob"
+  }
+  RigidBody "{6AB681BB5F5CE294}" {
+   SimState Collision
+   ModelGeometry 1
+  }
+ }
+ coords 0 0 0
+}

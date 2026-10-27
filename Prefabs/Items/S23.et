@@ -1,0 +1,15 @@
+GenericEntity {
+ ID "6AB66B9E3CFD22D8"
+ components {
+  MeshObject "{6AB66B9E0735516D}" {
+   Object "{10E797F0D6647317}Assets/Props/ATAK_Phone.xob"
+  }
+  RigidBody "{6AB67D32F0040228}" {
+   LayerPreset "Prop"
+   Active Active
+   ModelGeometry 1
+   Static 1
+  }
+ }
+ coords 2.189 3.507 3.125
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{464E9A0CE498C2AF}Assets/Props/Data/Phone_finish_Blue_Coated_Lens.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

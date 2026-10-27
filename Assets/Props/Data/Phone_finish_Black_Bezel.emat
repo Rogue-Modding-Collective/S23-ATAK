@@ -1,0 +1,4 @@
+MatPBRBasic {
+ BCRMap "{D4D8F8CF5DB1482C}Assets/Props/ATAK_Black_Bezel_BCR.edds"
+ NMOMap "{EC00435D84C61AB2}Assets/Props/ATAK_Black_Bezel_NMO.edds"
+}

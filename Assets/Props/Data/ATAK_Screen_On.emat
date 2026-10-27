@@ -1,0 +1,6 @@
+MatPBRBasic {
+ Emissive 0.456 0.456 0.456 1
+ EmissiveLV 1
+ BCRMap "{E21EF4679EEB5444}Assets/Props/Data/ATAK_Display_BCR.edds"
+ NMOMap "{DAC64FF5479C06DA}Assets/Props/Data/ATAK_Display_NMO.edds"
+}

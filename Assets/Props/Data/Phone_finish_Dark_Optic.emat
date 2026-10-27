@@ -1,0 +1,4 @@
+MatPBRBasic {
+ BCRMap "{B516F6442C28AB34}Assets/Props/ATAK_Dark_Optic_BCR.edds"
+ NMOMap "{8DCE4DD6F55FF9AA}Assets/Props/ATAK_Dark_Optic_NMO.edds"
+}

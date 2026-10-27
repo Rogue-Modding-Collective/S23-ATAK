@@ -1,0 +1,4 @@
+MatPBRBasic {
+ BCRMap "{18F2FABC1FCA714F}Assets/Props/ATAK_Recess_Black_BCR.edds"
+ NMOMap "{202A412EC6BD23D1}Assets/Props/ATAK_Recess_Black_NMO.edds"
+}

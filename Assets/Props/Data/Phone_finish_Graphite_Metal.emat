@@ -1,0 +1,4 @@
+MatPBRBasic {
+ BCRMap "{F8B11A67680EA32D}Assets/Props/ATAK_Graphite_Metal_BCR.edds"
+ NMOMap "{C069A1F5B179F1B3}Assets/Props/ATAK_Graphite_Metal_NMO.edds"
+}

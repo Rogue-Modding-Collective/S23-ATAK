@@ -1,0 +1,4 @@
+MatPBRBasic {
+ BCRMap "{E21EF4679EEB5444}Assets/Props/Data/ATAK_Display_BCR.edds"
+ NMOMap "{DAC64FF5479C06DA}Assets/Props/Data/ATAK_Display_NMO.edds"
+}

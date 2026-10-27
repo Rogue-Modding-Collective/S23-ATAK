@@ -1,0 +1,4 @@
+MatPBRBasic {
+ BCRMap "{676786856FBFD5D2}Assets/Props/ATAK_Blue_Coated_Lens_BCR.edds"
+ NMOMap "{5FBF3D17B6C8874C}Assets/Props/ATAK_Blue_Coated_Lens_NMO.edds"
+}

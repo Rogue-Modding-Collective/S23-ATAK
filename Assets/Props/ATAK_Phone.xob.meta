@@ -1,0 +1,134 @@
+MetaFileClass {
+ Name "{10E797F0D6647317}Assets/Props/ATAK_Phone.xob"
+ Configurations {
+  FBXResourceClass PC {
+   MaterialAssigns {
+    MaterialAssignClass "{6AB66B9E70EBE696}" {
+     SourceMaterial "Phone_finish_Black_Bezel"
+     AssignedMaterial "{53A4BE334159B146}Assets/Props/Data/Phone_finish_Black_Bezel.emat"
+    }
+    MaterialAssignClass "{6AB66B9E70EBE6BA}" {
+     SourceMaterial "ATAK_Display_Material"
+     AssignedMaterial "{A63CE15D19A99FC3}Assets/Props/Data/ATAK_Screen_Off.emat"
+    }
+    MaterialAssignClass "{6AB66B9E70EBE6BF}" {
+     SourceMaterial "Phone_finish_Graphite_Metal"
+     AssignedMaterial "{FFE21E73BF52566B}Assets/Props/Data/Phone_finish_Graphite_Metal.emat"
+    }
+    MaterialAssignClass "{6AB66B9E70EBE6B2}" {
+     SourceMaterial "Phone_finish_Recess_Black"
+     AssignedMaterial "{60CD2008CA475528}Assets/Props/Data/Phone_finish_Recess_Black.emat"
+    }
+    MaterialAssignClass "{6AB66B9E70EBE6B6}" {
+     SourceMaterial "Phone_finish_Subdued_Flash"
+     AssignedMaterial "{69E977613DF251F7}Assets/Props/Data/Phone_finish_Subdued_Flash.emat"
+    }
+    MaterialAssignClass "{6AB66B9E70EBE14D}" {
+     SourceMaterial "Phone_finish_Blue_Coated_Lens"
+     AssignedMaterial "{464E9A0CE498C2AF}Assets/Props/Data/Phone_finish_Blue_Coated_Lens.emat"
+    }
+    MaterialAssignClass "{6AB66B9E70EBE14E}" {
+     SourceMaterial "Phone_finish_Dark_Optic"
+     AssignedMaterial "{A0A1DBDAEE795397}Assets/Props/Data/Phone_finish_Dark_Optic.emat"
+    }
+    MaterialAssignClass "{6AB66B9E70EBE142}" {
+     SourceMaterial "Phone_finish_Satin_Rear_Glass"
+     AssignedMaterial "{9EFDB38B7FED49A3}Assets/Props/Data/Phone_finish_Satin_Rear_Glass.emat"
+    }
+   }
+   MeshParams {
+    MeshParam ATAK_Display {
+    }
+    MeshParam Phone_geometry_Frame {
+    }
+    MeshParam Phone_geometry_Front_Bezel {
+    }
+    MeshParam Phone_geometry_Internal_Chassis {
+    }
+    MeshParam Phone_geometry_LED_Flash {
+    }
+    MeshParam Phone_geometry_LED_Flash_Rim {
+    }
+    MeshParam Phone_geometry_Microphone_Recess {
+    }
+    MeshParam Phone_geometry_Power_Button {
+    }
+    MeshParam Phone_geometry_Rear_Camera_1_Lens {
+    }
+    MeshParam Phone_geometry_Rear_Camera_1_Optic {
+    }
+    MeshParam Phone_geometry_Rear_Camera_1_Ring {
+    }
+    MeshParam Phone_geometry_Rear_Camera_2_Lens {
+    }
+    MeshParam Phone_geometry_Rear_Camera_2_Optic {
+    }
+    MeshParam Phone_geometry_Rear_Camera_2_Ring {
+    }
+    MeshParam Phone_geometry_Rear_Camera_3_Lens {
+    }
+    MeshParam Phone_geometry_Rear_Camera_3_Optic {
+    }
+    MeshParam Phone_geometry_Rear_Camera_3_Ring {
+    }
+    MeshParam Phone_geometry_Rear_Glass_Panel {
+    }
+    MeshParam Phone_geometry_Selfie_Aperture_Rim {
+    }
+    MeshParam Phone_geometry_Selfie_Lens {
+    }
+    MeshParam Phone_geometry_Speaker_1_Recess {
+    }
+    MeshParam Phone_geometry_Speaker_2_Recess {
+    }
+    MeshParam Phone_geometry_Speaker_3_Recess {
+    }
+    MeshParam Phone_geometry_Speaker_4_Recess {
+    }
+    MeshParam Phone_geometry_Speaker_5_Recess {
+    }
+    MeshParam Phone_geometry_USB_C_Recess {
+    }
+    MeshParam Phone_geometry_USB_C_Tongue {
+    }
+    MeshParam Phone_geometry_Volume_Rocker {
+    }
+   }
+   GeometryParams {
+    GeometryParam UBX_Phone {
+     LayerPreset "PropFireView"
+     SurfaceProperties {
+      "{536BF67B2052B869}material/metal.gamemat"
+     }
+     Mass 0
+     Margin 0
+    }
+   }
+   Common TXOCommonClass "{6AB66B9E70DC044E}" : "{0877E7C4BB2B2C9A}Configs/System/ResourceTypes/PC/MeshObjectCommon.conf" {
+   }
+   ApplicationVendor "Blender Foundation"
+   ApplicationName "Blender (stable FBX IO)"
+   ApplicationVersion "4.3.5"
+  }
+  FBXResourceClass XBOX_ONE : PC {
+   Common TXOCommonClass "{6AB66B9E70DC0436}" : "{9D5B6207F7628CE2}Configs/System/ResourceTypes/XBOX_ONE/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass XBOX_SERIES : PC {
+   Common TXOCommonClass "{6AB66B9E70DC04E4}" : "{DD9F02115C764647}Configs/System/ResourceTypes/XBOX_SERIES/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass PS4 : PC {
+   Common TXOCommonClass "{6AB66B9E70DC049E}" : "{53EC476BC921D99A}Configs/System/ResourceTypes/PS4/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass PS5 : PC {
+   Common TXOCommonClass "{6AB66B9E70DC0723}" : "{F62AA8E7B8EA9D26}Configs/System/ResourceTypes/PS5/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass HEADLESS : PC {
+   Common TXOCommonClass "{6AB66B9E70DC07CE}" : "{3A5B3356978039E8}Configs/System/ResourceTypes/HEADLESS/MeshObjectCommon.conf" {
+   }
+  }
+ }
+}

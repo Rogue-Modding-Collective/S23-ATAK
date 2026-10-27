@@ -1,0 +1,8 @@
+GameProject {
+ ID "S23ATAK"
+ GUID "6AB66B96D3EDF176"
+ TITLE "S23-ATAK"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

@@ -1,0 +1,10 @@
+GenericEntity {
+ ID "6AB67D336CA69775"
+ components {
+  MeshObject "{6AB67D337CCEB93F}" {
+   Object "{10E797F0D6647317}Assets/Props/ATAK_Phone.xob"
+  }
+ }
+ coords -0.556 0.451 0.522
+ angles 82.163 180 -180
+}
