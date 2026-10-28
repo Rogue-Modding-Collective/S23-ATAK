@@ -1,7 +1,24 @@
-GenericEntity : "{2E0E01EC41B69835}Prefabs/Items/Core/S23Item.et" {
- coords 6450.867 163.567 6486.502
- angles 90 0 0
+SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ coords 6120.51 157.587 6280.017
+ {
+  CommentEntity {
+   coords 0 1 0
+   m_Comment "SCR_AIWorld: "\
+   "Configure navigation mesh"
+   m_Color 0 0 0
+   m_FaceCamera 1
+   m_TextBackground 1
+   m_BackgroundColor 1 0.6 0
+   m_BackgroundTransparency 0
+  }
+ }
 }
-GenericEntity : "{C3958C367D545554}Prefabs/Items/Equipment/Compass/Compass_SY183.et" {
- coords 6447.482 162.867 6485.909
+PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 6120.51 157.494 6279.017
+}
+SCR_GameModeEditor GameMode_Editor_Full : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
+ coords 6120.51 157.4 6278.017
+}
+GenericEntity : "{C3958C367D545554}Prefabs/Items/S23_ATAK.et" {
+ coords 6447.372 162.867 6485.347
 }

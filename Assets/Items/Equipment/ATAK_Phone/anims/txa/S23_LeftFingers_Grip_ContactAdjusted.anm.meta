@@ -1,0 +1,19 @@
+MetaFileClass {
+ Name "{52FA17C46F0AD1AE}Assets/Items/Equipment/ATAK_Phone/anims/txa/S23_LeftFingers_Grip_ContactAdjusted.anm"
+ Configurations {
+  TXAResourceClass PC {
+   SourcePath "S23_LeftHandGrip_ContactAdjusted.mixar"
+   SourceProfile "S23_LeftFingersABS"
+  }
+  TXAResourceClass XBOX_ONE : PC {
+  }
+  TXAResourceClass XBOX_SERIES : PC {
+  }
+  TXAResourceClass PS4 : PC {
+  }
+  TXAResourceClass PS5 : PC {
+  }
+  TXAResourceClass HEADLESS : PC {
+  }
+ }
+}

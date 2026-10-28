@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{CD2768E1CC89DEDA}Assets/Items/Equipment/ATAK_Phone/workspaces/S23_ATAK_Grip.agf"
+ Configurations {
+  AnimGraphFileResourceClass PC {
+  }
+  AnimGraphFileResourceClass XBOX_ONE : PC {
+  }
+  AnimGraphFileResourceClass XBOX_SERIES : PC {
+  }
+  AnimGraphFileResourceClass PS4 : PC {
+  }
+  AnimGraphFileResourceClass PS5 : PC {
+  }
+  AnimGraphFileResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,72 @@
+GenericEntity : "{C95E11C60810F432}Prefabs/Items/Core/Item_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  ATAK_PhoneGadgetComponent "{516C83E736355DB2}" {
+   m_eAnimVariable SY183
+   m_sScreenSlot "ATAK_Display_Material"
+   m_sScreenOff "{A63CE15D19A99FC3}Assets/Props/Data/ATAK_Screen_Off.emat"
+   m_sScreenOn "{3F4E127A062AF544}Assets/Props/Data/ATAK_Screen_On.emat"
+   m_sScreenLive "{6D2913EB827C8BFF}Assets/Props/Data/ATAK_Screen_Live.emat"
+   m_sDisplayLayout "{7213168B8D092797}UI/layouts/Gadgets/BallisticTable/ATAK_PhoneDisplay.layout"
+   m_fDisplayAspect 0.461538
+  }
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "ATAK Phone"
+     Description "In-game tactical phone"
+     Icon ""
+    }
+    ItemPhysAttributes ItemPhysicalAttributes PhysicalAttributes {
+     Weight 0.24
+     SizeSetupStrategy Manual
+     ItemDimensions 5 5 5
+     ItemVolume 100
+    }
+    ItemAnimationAttributes ItemAnimationAttributes "{54A70642660CB7E7}" {
+     AnimationAttachments {
+      AnimationAttachmentInfo "{6AB82C96CB2FF090}" {
+       AnimGraph "{E229765B522AB7EA}Assets/Items/Equipment/ATAK_Phone/workspaces/S23_ATAK_Grip.agr"
+       AnimInstance "{9CF241CBEEC2B0AC}Assets/Items/Equipment/ATAK_Phone/workspaces/S23_ATAK_Player.asi"
+       BindingName "Gadget"
+      }
+     }
+     HandAdditiveRotation 90 180 0
+     HandAdditiveTranslation 0 0 -0.05
+    }
+    CustomAttributes {
+     CharacterModifierAttributes "{52A87A37FE262120}" {
+      ADSSpeedLimit 1
+      TurnLimit 90
+     }
+     PreviewRenderAttributes "{6AB82C96CB2FF094}" {
+      CameraOrbitAngles -60 -40 0
+      CameraDistanceToItem 0.4
+      CameraOffset 0.015 0.015 0
+      FOV 10
+     }
+     SCR_SelectionMenuPreviewAttributes "{6AB82C96CB2FF096}" {
+      m_fCustomFov 25
+      m_fIconSizeXMultiplier 1.25
+     }
+    }
+    CommonItemType "NONE"
+    m_SlotType SLOT_GADGETS_STORAGE
+   }
+  }
+  MeshObject "{508CE897176A2622}" {
+   Object "{10E797F0D6647317}Assets/Props/ATAK_Phone.xob"
+   InheritVisibility 1
+  }
+  RigidBody "{6AB82C96CB2FF0AA}" {
+   ModelGeometry 1
+  }
+  ActionsManagerComponent "{508AB5952B584B2E}" {
+   additionalActions {
+    SCR_EquipItemAction "{6324CBA6F260680B}" : "{068D8D646964D12A}Prefabs/Characters/Core/Actions/EquipGadgetAction.conf" {
+    }
+   }
+  }
+ }
+ coords 6446.984 162.867 6485.353
+}

@@ -1,0 +1,307 @@
+FrameWidgetClass "{6AB749486C4235A0}" {
+ Name "ATAK_PhoneMapMenu"
+ {
+  FrameWidgetClass "{6AB749486C4235A2}" : "{0651202E9F2646DF}UI/layouts/Gadgets/BallisticTable/ATAK_PhoneMapFrame.layout" {
+   Name "MapFrame"
+   Slot FrameWidgetSlot "{58731DB204D943BC}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+   }
+  }
+  HorizontalLayoutWidgetClass "{6AB749486C4235B8}" {
+   Name "ToolMenuContainer"
+   Slot FrameWidgetSlot "{6102635F637AB8C1}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 20
+    PositionY 0
+    OffsetTop 48
+    SizeX -1820
+    OffsetRight 0
+    SizeY -1050
+    OffsetBottom 0
+    Alignment 0 0
+   }
+   {
+    FrameWidgetClass "{6AB749486C4235BA}" : "{2F8AEE78FF5A8104}UI/layouts/Map/ToolMenu.layout" {
+     Name "ToolMenu"
+     Slot LayoutSlot "{6102635CD378C2B3}" {
+      HorizontalAlign 0
+      VerticalAlign 0
+     }
+     "Z Order" 0
+     {
+      RichTextWidgetClass "{59107CD34D2BC078}" {
+       Prefab "{59107CD34D2BC078}"
+       Slot FrameWidgetSlot "{59107CC3B4EF4150}" {
+       }
+       Text "<shadow color='0,0,0' size='0' offset='1,1' opacity='0.5' mode='image'><action name=\"MapToolMenuFocus\"/></shadow>"
+       "Horizontal Alignment" Right
+      }
+     }
+    }
+    OverlayWidgetClass "{6AB749486C4235BD}" {
+     Name "ToolFramesOverlay"
+     Slot LayoutSlot "{6986A357121C7983}" {
+      SizeMode Fill
+     }
+     {
+      FrameWidgetClass "{6AB749486C4235BF}" {
+       Name "JournalFrame"
+       Slot OverlayWidgetSlot "{6AB749486C422BE0}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+      }
+      FrameWidgetClass "{6AB749486C4235BE}" {
+       Name "MapTaskList"
+       Slot OverlayWidgetSlot "{6AB749486C422BF3}" {
+        HorizontalAlign 0
+        VerticalAlign 3
+       }
+      }
+      FrameWidgetClass "{6AB749486C4235B1}" {
+       Name "MapSuppliesTransportSystem"
+       Slot OverlayWidgetSlot "{6AB749486C422B8E}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       "Is Visible" 0
+      }
+      FrameWidgetClass "{6AB749486C4235B3}" {
+       Name "MapWeatherFrame"
+       Slot OverlayWidgetSlot "{6986A3572CC94AF8}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+      }
+     }
+    }
+   }
+  }
+  ImageWidgetClass "{6AB749486C4235B2}" {
+   Name "FadeOut"
+   Slot FrameWidgetSlot "{59DA82335FBAB4D4}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX -1820
+    OffsetRight 0
+    SizeY -1050
+    OffsetBottom 0
+   }
+   "Z Order" 2
+   "Is Visible" 0
+   Opacity 0
+   Color 0 0 0 1
+  }
+  FrameWidgetClass "{6AB749486C4235B5}" {
+   Name "HudManagerLayout"
+   Slot FrameWidgetSlot "{5D8AB8F2DCC3C881}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+   }
+   components {
+    SCR_HUDMenuComponent "{5F0ADEF0C660AF98}" {
+     m_sIdentifier "ATAK_PhoneMapMenu"
+    }
+   }
+   {
+    FrameWidgetClass "{6AB749486C4235B7}" {
+     Name "Layer_Slots"
+     Slot FrameWidgetSlot "{5D62A913A6057240}" {
+      Anchor 0 0 1 1
+      PositionX 0
+      OffsetLeft 0
+      PositionY 0
+      OffsetTop 0
+      SizeX 0
+      OffsetRight 0
+      SizeY 0
+      OffsetBottom 0
+     }
+     {
+      VerticalLayoutWidgetClass "{6AB749486C4235B6}" {
+       Name "Group_Left"
+       Slot FrameWidgetSlot "{5D44B19A2BE9A6C4}" {
+        Anchor 0 0 1 1
+        PositionX 0
+        OffsetLeft 0
+        PositionY 0
+        OffsetTop 0
+        SizeX -1320
+        OffsetRight 1320
+        SizeY 0
+        OffsetBottom 0
+       }
+       Clipping False
+       components {
+        SCR_HUDGroupUIComponent "{5D44B19A39A468D7}" {
+         m_bEnableDebugFont 0
+        }
+       }
+       {
+        FrameWidgetClass "{6AB749486C423449}" {
+         Name "Slot_Chat"
+         Slot LayoutSlot "{5D44B19A05C7B70A}" {
+         }
+         components {
+          SCR_HUDSlotUIComponent "{5D44B19A037B2FF4}" {
+           m_iPriority 1
+           m_aHeightSteps {
+            100 200 300
+           }
+           m_aWidthSteps {
+            600
+           }
+          }
+         }
+        }
+        FrameWidgetClass "{6AB749486C42344B}" {
+         Name "Slot_VON"
+         Slot LayoutSlot "{5D44B19A05C7B70A}" {
+          Padding 0 0 0 0
+         }
+         components {
+          SCR_HUDSlotUIComponent "{5D44B19A037B2FF4}" {
+           m_iPriority 1
+           m_aHeightSteps {
+            100 200
+           }
+           m_aWidthSteps {
+            600
+           }
+          }
+         }
+        }
+        FrameWidgetClass "{6AB749486C42344A}" {
+         Name "Filler"
+         Slot LayoutSlot "{5D44B19A48E6BC77}" {
+          SizeMode Fill
+         }
+        }
+        FrameWidgetClass "{6AB749486C42344D}" {
+         Name "Slot_AvailableActions"
+         Slot LayoutSlot "{5D44B19A05C7B70A}" {
+         }
+         components {
+          SCR_HUDSlotUIComponent "{5D44B19A037B2FF4}" {
+           m_iPriority 2
+           m_aHeightSteps {
+            100 200
+           }
+           m_aWidthSteps {
+            600
+           }
+          }
+         }
+        }
+        FrameWidgetClass "{6AB749486C42344F}" {
+         Name "Filler0"
+         Slot LayoutSlot "{5D44B19A48E6BC77}" {
+          SizeMode Fill
+          FillWeight 0.2
+         }
+        }
+       }
+      }
+      VerticalLayoutWidgetClass "{6AB749486C42344E}" {
+       Name "Group_Right"
+       Slot FrameWidgetSlot "{5D44B19A2BE9A6C4}" {
+        Anchor 0 0 1 1
+        PositionX 1312.64
+        OffsetLeft 1320
+        PositionY -2.735
+        OffsetTop 0
+        SizeX -1320
+        OffsetRight 0
+        SizeY 0
+        OffsetBottom 0
+       }
+       components {
+        SCR_HUDGroupUIComponent "{5D44B19A39A468D7}" {
+         m_bEnableDebugFont 0
+        }
+       }
+       {
+        FrameWidgetClass "{6AB749486C423441}" {
+         Name "Slot_GameVersion"
+         Slot LayoutSlot "{5D44B19A05C7B70A}" {
+          HorizontalAlign 2
+         }
+         components {
+          SCR_HUDSlotUIComponent "{5D44B19A037B2FF4}" {
+           m_iPriority 2
+           m_aHeightSteps {
+            100
+           }
+           m_aWidthSteps {
+            600
+           }
+          }
+         }
+        }
+        FrameWidgetClass "{6AB749486C423443}" {
+         Name "Slot_Notifications"
+         Slot LayoutSlot "{5D44B19A05C7B70A}" {
+          HorizontalAlign 2
+         }
+         components {
+          SCR_HUDSlotUIComponent "{5D44B19A037B2FF4}" {
+           m_iPriority 2
+           m_aHeightSteps {
+            100 150 200 300
+           }
+           m_aWidthSteps {
+            600
+           }
+          }
+         }
+        }
+        FrameWidgetClass "{6AB749486C423442}" {
+         Name "Slot_Hints"
+         Slot LayoutSlot "{5D44B19A05C7B70A}" {
+          HorizontalAlign 2
+         }
+         components {
+          SCR_HUDSlotUIComponent "{5D44B19A037B2FF4}" {
+           m_iPriority 3
+           m_aHeightSteps {
+            300 400 500 600 700 750
+           }
+           m_aWidthSteps {
+            600
+           }
+          }
+         }
+        }
+        FrameWidgetClass "{6AB749486C423445}" {
+         Name "Filler"
+         Slot LayoutSlot "{5D44B19A48E6BC77}" {
+          SizeMode Fill
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

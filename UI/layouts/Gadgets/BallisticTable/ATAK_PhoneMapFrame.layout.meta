@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{0651202E9F2646DF}UI/layouts/Gadgets/BallisticTable/ATAK_PhoneMapFrame.layout"
+ Configurations {
+  LayoutResourceClass PC {
+  }
+  LayoutResourceClass XBOX_ONE : PC {
+  }
+  LayoutResourceClass XBOX_SERIES : PC {
+  }
+  LayoutResourceClass PS4 : PC {
+  }
+  LayoutResourceClass PS5 : PC {
+  }
+  LayoutResourceClass HEADLESS : PC {
+  }
+ }
+}

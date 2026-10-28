@@ -1,0 +1,278 @@
+FrameWidgetClass "{6AB74C7638C40F86}" {
+ Name "MapFrame"
+ {
+  MapWidgetClass "{6AB74C7638C40F9B}" {
+   Name "MapWidget"
+   Slot FrameWidgetSlot "{50A4DDC879494878}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    PositionY 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+    Alignment 0 0
+   }
+   "Z Order" -1000
+   Color 1 1 1 1
+   SizeInUnits 1024 1024
+   OffsetPixels 0 0
+   Clear 1
+   ClearColor 0.114 0.209 0.231 1
+   Imagesets {
+    "{BCD5479864D1A79A}UI/Textures/Map/topographicIcons/icons_topographic_map.imageset" "{F7E8D4834A3AFF2F}UI/Imagesets/Conflict/conflict-icons-bw.imageset" "{9AF52DEEF08E7F74}UI/Imagesets/Editor/editor_icons_map.imageset"
+   }
+   TextureDashedLine "{48D3C3A42E53D202}UI/Textures/Map/lines/lineDashed.edds"
+  }
+  CanvasWidgetClass "{6AB74C7638C40F9D}" {
+   Name "ManualCamera"
+   Slot FrameWidgetSlot "{5A45347FD72F20AD}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+    Alignment 0 0
+   }
+   SizeInUnits 1024 1024
+  }
+  CanvasWidgetClass "{6AB74C7638C40F9C}" {
+   Name "DrawingWidget"
+   Slot FrameWidgetSlot "{50A4DDC879494989}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+    Alignment 0 0
+   }
+   "Z Order" -500
+   Color 1 1 1 1
+   SizeInUnits 1024 1024
+   Clear 1
+   ClearColor 0 0 0 0
+   FontProperties {
+    FontProperties "{50A691C68850B695}" {
+     Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+    }
+   }
+  }
+  FrameWidgetClass "{6AB74C7638C40F9F}" {
+   Name "DrawingContainer"
+   Slot FrameWidgetSlot "{5D828475DBE539F7}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX -1820
+    OffsetRight 0
+    SizeY -1050
+    OffsetBottom 0
+   }
+   "Z Order" -400
+  }
+  FrameWidgetClass "{6AB74C7638C40F91}" {
+   Name "UIIconsContainer"
+   Slot FrameWidgetSlot "{54E30A36DBD6A67B}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+   }
+   "Z Order" 65
+   "Is Visible" 0
+  }
+  FrameWidgetClass "{6AB74C7638C40F90}" : "{759E272AB041AC21}UI/layouts/Map/MapRuler.layout" {
+   Name "RulerFrame"
+   Slot FrameWidgetSlot "{59387C05F9964BF9}" {
+   }
+   "Z Order" 80
+   "Is Enabled" 0
+   "Is Visible" 0
+   {
+    ImageWidgetClass "{59387C05CE1B5E65}" {
+     Prefab "{59387C05CE1B5E65}"
+     Size 4096 4096
+    }
+   }
+  }
+  FrameWidgetClass "{6AB74C7638C40F92}" : "{3E056C4AA830A951}UI/layouts/Map/MapCompass.layout" {
+   Name "CompassFrame"
+   Slot FrameWidgetSlot "{50EEEA24A3B55E9F}" {
+   }
+   "Z Order" 90
+  }
+  FrameWidgetClass "{6AB74C7638C40F95}" : "{53FECD6BF5324E19}UI/layouts/Map/MapWatch.layout" {
+   Name "WatchFrame"
+   Slot FrameWidgetSlot "{50EEEA24A3B55E9F}" {
+   }
+   "Z Order" 100
+  }
+  ImageWidgetClass "{6AB74C7638C40F94}" {
+   Name "LightOverlay"
+   Slot FrameWidgetSlot "{52E6A9EC8F952EEC}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX -1820
+    OffsetRight 0
+    SizeY -1050
+    OffsetBottom 0
+   }
+   "Z Order" 120
+   "Is Visible" 0
+   Opacity 0.05
+   Color 1 0.804 0.38 1
+   Size 0 0
+   "Blend Mode" Blend
+  }
+  HorizontalLayoutWidgetClass "{6AB74C7638C40F96}" {
+   Name "LightCone"
+   Slot FrameWidgetSlot "{52DAFAF0E0E5133F}" {
+    Anchor 0 0 1 1
+    PositionX 1.745
+    PositionY 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+    Alignment 0 0
+   }
+   "Z Order" 120
+   "Is Visible" 0
+   Color 0 0 0 1
+   {
+    ImageWidgetClass "{6AB74C7638C40FA9}" {
+     Name "FillLeft"
+     Slot LayoutSlot "{52DA9C9935318517}" {
+      Padding 0 0 0 0
+      FillWeight 1
+     }
+     Color 0 0 0 1
+     Size 0 0
+    }
+    VerticalLayoutWidgetClass "{6AB74C7638C40FA8}" {
+     Name "VerticalLayout0"
+     Slot LayoutSlot "{52DAFAF0E0E5139E}" {
+     }
+     Color 0 0 0 1
+     "Fill Origin" Top
+     {
+      ImageWidgetClass "{6AB74C7638C40FAA}" {
+       Name "FillTop"
+       Slot LayoutSlot "{52DA9C997457414E}" {
+        Padding 0 0 0 0
+        FillWeight 1
+       }
+       Color 0 0 0 1
+       Size 0 0
+      }
+      ImageWidgetClass "{6AB74C7638C40FAD}" {
+       Name "Cone"
+       Slot LayoutSlot "{52DAFAF0E0E51C5B}" {
+        HorizontalAlign 1
+        VerticalAlign 1
+        Padding 0 0 0 0
+       }
+       Color 0 0 0 1
+       Texture "{07DC87F03BA4402C}UI/Textures/Map/lightCones/lightCone_flashlight0_ca.edds"
+       Image ""
+       Size 1024 1024
+       "Blend Mode" Blend
+       Range 0.414
+      }
+      ImageWidgetClass "{6AB74C7638C40FAC}" {
+       Name "FillBot"
+       Slot LayoutSlot "{52DA9C997457414E}" {
+        SizeMode Fill
+        FillWeight 1
+       }
+       Color 0 0 0 1
+       Size 0 0
+      }
+     }
+    }
+    ImageWidgetClass "{6AB74C7638C40FAE}" {
+     Name "FillRight"
+     Slot LayoutSlot "{52DAFAF0E0E51C15}" {
+      SizeMode Fill
+      FillWeight 1
+     }
+     Color 0 0 0 1
+     Size 0 0
+    }
+   }
+  }
+  HorizontalLayoutWidgetClass "{6AB74C7638C40FA1}" : "{6380743F533D3733}UI/layouts/Map/CursorCrosshair.layout" {
+   Name "CursorCrosshair"
+   Slot FrameWidgetSlot "{55A2A2EE2E39E9FB}" {
+   }
+   "Z Order" 110
+   {
+    VerticalLayoutWidgetClass "{55A2A2FEB2DAB65B}" {
+     Prefab "{55A2A2FEB2DAB65B}"
+     Clipping Ancestor
+     {
+      TextWidgetClass "{6AB74C7638C40FA2}" {
+       Name "HeightText"
+       Slot LayoutSlot "{620A7508DDE49CA2}" {
+        HorizontalAlign 0
+        Padding -30 -2 0 0
+       }
+       "Z Order" 3
+       Opacity 0
+       Clipping False
+       Text "375, 1057"
+       "Font Size" 18
+       "Min Font Size" 12
+       FontProperties FontProperties "{620A7508578545AD}" {
+        Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+        OutlineSize 1
+       }
+      }
+      ImageWidgetClass "{55A2A2FEA6644F65}" {
+       Prefab "{55A2A2FEA6644F65}"
+       Slot LayoutSlot "{52DA9C997457414E}" {
+        Padding 0 296 0 0
+       }
+      }
+      TextWidgetClass "{5654A18BF82D9B59}" {
+       Prefab "{5654A18BF82D9B59}"
+       Slot LayoutSlot "{5654A18BF82D9B6D}" {
+        Padding -30 0 0 -2
+       }
+       "Z Order" 1
+       Clipping False
+       "Font Size" 18
+      }
+      HorizontalLayoutWidgetClass "{56527D6A08904DE4}" {
+       Prefab "{56527D6A08904DE4}"
+       "Z Order" 2
+      }
+      ImageWidgetClass "{55A2A2FE05FD6952}" {
+       Prefab "{55A2A2FE05FD6952}"
+       "Z Order" 4
+      }
+     }
+    }
+   }
+  }
+ }
+}
