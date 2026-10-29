@@ -2,7 +2,8 @@ enum ATAK_EDevicePage
 {
 	ATAK_HOME,
 	ATAK_MAP,
-	ATAK_SETTINGS
+	ATAK_SETTINGS,
+	ATAK_SQUAD
 }
 
 // Session state belongs to this device/controller; no shared material mutation.
@@ -10,13 +11,15 @@ class ATAK_DeviceUIState
 {
 	ATAK_EDevicePage m_ePage = ATAK_EDevicePage.ATAK_HOME;
 	int m_iAppSelection;
+	int m_iSquadOffset;
+	int m_iSquadCount;
 	int m_iSettingsSelection;
 	int m_iBrightnessPercent = 100;
 	int m_iRevision;
 
 	bool ShowsMap()
 	{
-		return m_ePage != ATAK_EDevicePage.ATAK_HOME;
+		return m_ePage == ATAK_EDevicePage.ATAK_MAP || m_ePage == ATAK_EDevicePage.ATAK_SETTINGS;
 	}
 
 	void BootHome()
@@ -41,6 +44,11 @@ class ATAK_DeviceUIState
 				m_iAppSelection = selected;
 				m_iRevision++;
 			}
+		}
+		else if (m_ePage == ATAK_EDevicePage.ATAK_SQUAD)
+		{
+			m_iSquadOffset = Math.ClampInt(m_iSquadOffset - north + east * 8, 0, Math.Max(0, m_iSquadCount - 8));
+			m_iRevision++;
 		}
 		else if (m_ePage == ATAK_EDevicePage.ATAK_SETTINGS)
 		{
@@ -78,6 +86,8 @@ class ATAK_DeviceUIState
 		{
 			if (m_iAppSelection == 0)
 				m_ePage = ATAK_EDevicePage.ATAK_MAP;
+			else if (m_iAppSelection == 1)
+				m_ePage = ATAK_EDevicePage.ATAK_SQUAD;
 			else if (m_iAppSelection == 5)
 				m_ePage = ATAK_EDevicePage.ATAK_SETTINGS;
 			else
@@ -114,6 +124,10 @@ class ATAK_DeviceUI
 	protected ref array<TextWidget> m_AppTitles = {};
 	protected ref array<TextWidget> m_AppDetails = {};
 	protected ref array<TextWidget> m_SettingsRows = {};
+	protected ref array<TextWidget> m_SquadNames = {};
+	protected ref array<TextWidget> m_SquadBadges = {};
+	protected ATAK_SquadData m_Squad;
+	protected TextWidget m_wSquadIdentity;
 	protected TextWidget m_wTitle;
 	protected TextWidget m_wClock;
 	protected TextWidget m_wSubtitle;
@@ -133,8 +147,8 @@ class ATAK_DeviceUI
 
 	static float HeaderHeight(ATAK_MapViewState view)
 	{
-		if (view.Compact) return 32;
-		return 128 * view.CanvasHeight / 1024;
+		if (view.Compact) return 52;
+		return 168 * view.CanvasHeight / 1024;
 	}
 
 	static float FooterHeight(ATAK_MapViewState view)
@@ -163,6 +177,12 @@ class ATAK_DeviceUI
 		m_wTitle = CreateUIText(48, 18, 580, 60, 44);
 		m_wClock = CreateUIText(794, 24, 190, 52, 36);
 		m_wSubtitle = CreateUIText(48, 82, 928, 36, 25);
+		m_wSquadIdentity = CreateUIText(48, 124, 928, 30, 23);
+		for (int squadRow = 0; squadRow < 8; squadRow++)
+		{
+			m_SquadNames.Insert(CreateUIText(72, 208 + squadRow * 80, 608, 48, 34));
+			m_SquadBadges.Insert(CreateUIText(696, 214 + squadRow * 80, 264, 40, 24));
+		}
 		m_wFooterMain = CreateUIText(48, 894, 928, 36, 30);
 		m_wFooterInfo = CreateUIText(48, 930, 928, 28, 23);
 		m_wHint = CreateUIText(48, 959, 928, 26, 22);
@@ -175,11 +195,11 @@ class ATAK_DeviceUI
 			m_AppDetails.Insert(CreateUIText(72 + column * 476, 278 + row * 208, 400, 48, 24));
 		}
 		for (int setting = 0; setting < 7; setting++)
-			m_SettingsRows.Insert(CreateUIText(72, 164 + setting * 80, 880, 52, 30));
+			m_SettingsRows.Insert(CreateUIText(72, 184 + setting * 76, 880, 52, 30));
 		m_wSettingsNote = CreateUIText(64, 744, 896, 60, 23);
 		m_wPreview = CreateUIText(64, 816, 896, 40, 25);
 		// Fail cleanly if native widget creation failed partway through setup.
-		if (m_TextWidgets.Count() != 28)
+		if (m_TextWidgets.Count() != 45)
 		{
 			Destroy();
 			return false;
@@ -277,6 +297,27 @@ class ATAK_DeviceUI
 		m_Commands.Insert(polygon);
 	}
 
+	void SetSquad(ATAK_SquadData squad)
+	{
+		m_Squad = squad;
+		Invalidate();
+	}
+
+	// Measure with the native font; reserve a separate column for badges.
+	static void FitText(TextWidget label, string value, float width)
+	{
+		label.SetText(value);
+		float measured, height;
+		label.GetTextSize(measured, height);
+		int length = value.Length();
+		while (measured > width && length > 0)
+		{
+			length--;
+			label.SetText(value.Substring(0, length) + "...");
+			label.GetTextSize(measured, height);
+		}
+	}
+
 	void Draw(ATAK_DeviceUIState state)
 	{
 		if (!m_Canvas)
@@ -290,15 +331,19 @@ class ATAK_DeviceUI
 		foreach (TextWidget textWidget : m_TextWidgets)
 			textWidget.SetVisible(false);
 		m_Commands.Clear();
-		if (state.m_ePage == ATAK_EDevicePage.ATAK_HOME)
+		if (state.m_ePage == ATAK_EDevicePage.ATAK_HOME || state.m_ePage == ATAK_EDevicePage.ATAK_SQUAD)
 			AddRect(0, 0, 1024, 1024, 0xFF0B121A);
-		AddRect(0, 0, 1024, 128, 0xF20B121A);
+		AddRect(0, 0, 1024, 168, 0xF20B121A);
 		AddRect(0, 880, 1024, 144, 0xF20B121A);
 		m_wTitle.SetText("ATAK");
 		m_wClock.SetText(m_sClock);
 		m_wTitle.SetVisible(true);
 		m_wClock.SetVisible(true);
 		m_wSubtitle.SetVisible(true);
+		m_wSquadIdentity.SetVisible(true);
+		string identity = "Squad information unavailable";
+		if (m_Squad) identity = m_Squad.Identity();
+		FitText(m_wSquadIdentity, identity, 928 * m_View.CanvasWidth / 1024);
 		m_wFooterMain.SetVisible(true);
 		m_wFooterInfo.SetVisible(true);
 		m_wHint.SetVisible(true);
@@ -329,11 +374,12 @@ class ATAK_DeviceUI
 				m_AppTitles[i].SetText(titles[i]);
 				m_AppTitles[i].SetColorInt(0xFF748899);
 				m_AppDetails[i].SetText("Coming later");
-				if (i == 0 || i == 5)
+				if (i == 0 || i == 1 || i == 5)
 				{
 					m_AppTitles[i].SetColorInt(0xFFEAF3F9);
 					m_AppDetails[i].SetText("Display controls");
 					if (i == 0) m_AppDetails[i].SetText("Live terrain map");
+					if (i == 1) m_AppDetails[i].SetText("Own-squad roster");
 				}
 				m_AppTitles[i].SetVisible(true);
 				m_AppDetails[i].SetVisible(true);
@@ -342,12 +388,44 @@ class ATAK_DeviceUI
 			m_wFooterInfo.SetText(string.Format("%1  OPEN APP", select));
 			m_wHint.SetText(string.Format("%1  SCREEN POWER", KeyName("GadgetActivate", "click", "USE ITEM")));
 		}
+		else if (state.m_ePage == ATAK_EDevicePage.ATAK_SQUAD)
+		{
+			m_wSubtitle.SetText("SQUAD | PLAYER ROSTER");
+			if (m_Squad && m_Squad.m_eStatus == ATAK_ESquadStatus.READY)
+			{
+				for (int rosterRow = 0; rosterRow < 8; rosterRow++)
+				{
+					int memberIndex = state.m_iSquadOffset + rosterRow;
+					if (memberIndex >= m_Squad.m_Members.Count()) break;
+					ATAK_SquadMember member = m_Squad.m_Members[memberIndex];
+					AddRect(48, 196 + rosterRow * 80, 928, 72, 0xFF12212E);
+					FitText(m_SquadNames[rosterRow], member.m_sDisplayName, 608 * m_View.CanvasWidth / 1024);
+					string badges = string.Empty;
+					if (member.m_bLeader) badges = "LEADER";
+					if (member.m_bLocal) badges += " YOU";
+					m_SquadBadges[rosterRow].SetText(badges);
+					m_SquadNames[rosterRow].SetVisible(true);
+					m_SquadBadges[rosterRow].SetVisible(true);
+				}
+				int first = 0;
+				if (state.m_iSquadCount > 0) first = state.m_iSquadOffset + 1;
+				m_wFooterMain.SetText(string.Format("MEMBERS %1 | %2-%3", state.m_iSquadCount, first, Math.Min(state.m_iSquadOffset + 8, state.m_iSquadCount)));
+				bool leaderPresent;
+				foreach (ATAK_SquadMember squadMember : m_Squad.m_Members)
+					if (squadMember.m_bLeader) leaderPresent = true;
+				if (!leaderPresent) m_wFooterInfo.SetText("Leader unavailable");
+			}
+			else
+				m_wFooterMain.SetText(identity);
+			m_wHint.SetText(string.Format("%1/%2 SCROLL | %3/%4 PAGE", up, down, left, right));
+			m_wBackHint.SetText(string.Format("%1 HOME", back));
+		}
 		else if (state.m_ePage == ATAK_EDevicePage.ATAK_SETTINGS)
 		{
 			m_wSubtitle.SetText("SETTINGS | DISPLAY");
 			for (int j = 0; j < 7; j++)
 			{
-				float top = 148 + j * 80;
+				float top = 172 + j * 76;
 				float height = 72;
 				int color = 0xEB0B121A;
 				if (j == state.m_iSettingsSelection) color = 0xFF216184;
@@ -444,6 +522,9 @@ class ATAK_DeviceUI
 		m_AppTitles.Clear();
 		m_AppDetails.Clear();
 		m_SettingsRows.Clear();
+		m_SquadNames.Clear();
+		m_SquadBadges.Clear();
+		m_Squad = null;
 		m_Commands.Clear();
 		m_RectPool.Clear();
 		m_Canvas = null;

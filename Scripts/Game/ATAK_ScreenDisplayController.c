@@ -25,6 +25,9 @@ class ATAK_ScreenDisplayController
 	protected float m_fRetryAfter;
 	protected string m_sClock = "--:--";
 	protected bool m_bHUD;
+	protected ref ATAK_SquadData m_Squad = new ATAK_SquadData();
+	protected float m_fSquadRefreshAfter;
+	protected TextWidget m_wHUDSquad;
 	protected TextWidget m_wHUDTitle;
 	protected TextWidget m_wHUDReadout;
 
@@ -47,6 +50,7 @@ class ATAK_ScreenDisplayController
 			m_wRenderTarget.SetEnabled(true);
 			if (m_UI)
 				m_UI.Invalidate();
+			if (!m_bRunning) m_fSquadRefreshAfter = 0;
 			m_bRunning = true;
 			return true;
 		}
@@ -187,9 +191,23 @@ class ATAK_ScreenDisplayController
 		m_wMapCanvas.SetZOrder(-10);
 		if (!CreateMapLayers(m_wRoot))
 			return false;
-		m_wHUDTitle = CreateHUDText(8, 6, size - 16, 22);
+		ImageWidget header = ImageWidget.Cast(GetGame().GetWorkspace().CreateWidget(WidgetType.ImageWidgetTypeID,
+			WidgetFlags.VISIBLE | WidgetFlags.NOFOCUS | WidgetFlags.IGNORE_CURSOR | WidgetFlags.STRETCH,
+			new Color(0.035, 0.05, 0.07, 0.95), 0, m_wRoot));
+		if (!header)
+		{
+			Destroy();
+			return false;
+		}
+		FrameSlot.SetAnchorMin(header, 0, 0);
+		FrameSlot.SetAnchorMax(header, 0, 0);
+		FrameSlot.SetPos(header, 0, 0);
+		FrameSlot.SetSize(header, size, 52);
+		header.SetZOrder(30);
+		m_wHUDTitle = CreateHUDText(8, 4, size - 16, 22);
+		m_wHUDSquad = CreateHUDText(8, 26, size - 16, 22);
 		m_wHUDReadout = CreateHUDText(8, size - 28, size - 16, 22);
-		if (!m_wHUDTitle || !m_wHUDReadout)
+		if (!m_wHUDTitle || !m_wHUDReadout || !m_wHUDSquad)
 		{
 			Destroy();
 			return false;
@@ -240,6 +258,7 @@ class ATAK_ScreenDisplayController
 	void BootHome()
 	{
 		m_UIState.BootHome();
+		m_fSquadRefreshAfter = 0;
 	}
 
 	void NavigateUI(int east, int north)
@@ -249,7 +268,9 @@ class ATAK_ScreenDisplayController
 
 	void SelectUI()
 	{
+		ATAK_EDevicePage previousPage = m_UIState.m_ePage;
 		m_UIState.Select();
+		if (previousPage != m_UIState.m_ePage) m_fSquadRefreshAfter = 0;
 	}
 
 	void RefreshBindings()
@@ -296,11 +317,30 @@ class ATAK_ScreenDisplayController
 		return true;
 	}
 
+	protected void RefreshSquad(float timeSlice)
+	{
+		m_fSquadRefreshAfter -= timeSlice;
+		if (m_fSquadRefreshAfter > 0) return;
+		m_fSquadRefreshAfter = 1;
+		int previousGroup = m_Squad.m_iGroupId;
+		m_Squad.Refresh(!m_bHUD && m_UIState.m_ePage == ATAK_EDevicePage.ATAK_SQUAD);
+		if (previousGroup != m_Squad.m_iGroupId) m_UIState.m_iSquadOffset = 0;
+		m_UIState.m_iSquadCount = m_Squad.m_Members.Count();
+		m_UIState.m_iSquadOffset = Math.ClampInt(m_UIState.m_iSquadOffset, 0, Math.Max(0, m_UIState.m_iSquadCount - 8));
+		if (m_UI) m_UI.SetSquad(m_Squad);
+		if (m_wHUDSquad)
+		{
+			float width = FrameSlot.GetSizeX(m_wHUDSquad);
+			ATAK_DeviceUI.FitText(m_wHUDSquad, m_Squad.Identity(), width);
+		}
+	}
+
 	void UpdateMapDisplay(float timeSlice = 0)
 	{
 		if (!m_bRunning || !m_wMapImage)
 			return;
 
+		RefreshSquad(timeSlice);
 		if (m_UI)
 			m_UI.Draw(m_UIState);
 		if (!m_bHUD && !m_UIState.ShowsMap())
@@ -491,6 +531,7 @@ class ATAK_ScreenDisplayController
 	void Stop()
 	{
 		m_bRunning = false;
+		m_fSquadRefreshAfter = 0;
 		if (m_bHUD && m_wRoot) m_wRoot.SetVisible(false);
 		HideMapLayers();
 		if (m_UI)
@@ -527,6 +568,7 @@ class ATAK_ScreenDisplayController
 		m_wRenderTarget = null;
 		m_wRoot = null;
 		m_wHUDTitle = null;
+		m_wHUDSquad = null;
 		m_wHUDReadout = null;
 		m_bHUD = false;
 		m_View.Compact = false;
