@@ -8,7 +8,7 @@ GenericEntity : "{C95E11C60810F432}Prefabs/Items/Core/Item_Base.et" {
    m_sScreenOn "{3F4E127A062AF544}Assets/Props/Data/ATAK_Screen_On.emat"
    m_sScreenLive "{6D2913EB827C8BFF}Assets/Props/Data/ATAK_Screen_Live.emat"
    m_sDisplayLayout "{7213168B8D092797}UI/layouts/Gadgets/BallisticTable/ATAK_PhoneDisplay.layout"
-   m_fDisplayAspect 0.461538
+   m_fDisplayAspect 0.462
   }
   InventoryItemComponent "{5222EB4D0C73006B}" {
    Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
@@ -22,6 +22,7 @@ GenericEntity : "{C95E11C60810F432}Prefabs/Items/Core/Item_Base.et" {
      SizeSetupStrategy Manual
      ItemDimensions 5 5 5
      ItemVolume 100
+     RestingUP Forward
     }
     ItemAnimationAttributes ItemAnimationAttributes "{54A70642660CB7E7}" {
      AnimationAttachments {

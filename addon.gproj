@@ -5,4 +5,96 @@ GameProject {
  Dependencies {
   "58D0FB3206B6F859"
  }
+ Configurations {
+  GameProjectConfig PC {
+   WidgetManagerSettings WidgetManagerSettings S23_ATAK_WidgetSettings {
+    StringTables {
+     StringTableDefinition S23_ATAK_Strings {
+      StringTableSource "{A8DE07D09737E16E}Language/S23_ATAK.st"
+      Languages {
+       LanguageDefinition S23_ATAK_English {
+        Code "en_us"
+        StringTableRuntime "{7B07C1CD635BAAC1}Language/S23_ATAK.en_us.conf"
+       }
+      }
+     }
+    }
+   }
+  }
+  GameProjectConfig XBOX_ONE {
+   WidgetManagerSettings WidgetManagerSettings S23_ATAK_WidgetSettings {
+    StringTables {
+     StringTableDefinition S23_ATAK_Strings {
+      StringTableSource "{A8DE07D09737E16E}Language/S23_ATAK.st"
+      Languages {
+       LanguageDefinition S23_ATAK_English {
+        Code "en_us"
+        StringTableRuntime "{7B07C1CD635BAAC1}Language/S23_ATAK.en_us.conf"
+       }
+      }
+     }
+    }
+   }
+  }
+  GameProjectConfig XBOX_SERIES {
+   WidgetManagerSettings WidgetManagerSettings S23_ATAK_WidgetSettings {
+    StringTables {
+     StringTableDefinition S23_ATAK_Strings {
+      StringTableSource "{A8DE07D09737E16E}Language/S23_ATAK.st"
+      Languages {
+       LanguageDefinition S23_ATAK_English {
+        Code "en_us"
+        StringTableRuntime "{7B07C1CD635BAAC1}Language/S23_ATAK.en_us.conf"
+       }
+      }
+     }
+    }
+   }
+  }
+  GameProjectConfig PS4 {
+   WidgetManagerSettings WidgetManagerSettings S23_ATAK_WidgetSettings {
+    StringTables {
+     StringTableDefinition S23_ATAK_Strings {
+      StringTableSource "{A8DE07D09737E16E}Language/S23_ATAK.st"
+      Languages {
+       LanguageDefinition S23_ATAK_English {
+        Code "en_us"
+        StringTableRuntime "{7B07C1CD635BAAC1}Language/S23_ATAK.en_us.conf"
+       }
+      }
+     }
+    }
+   }
+  }
+  GameProjectConfig PS5 {
+   WidgetManagerSettings WidgetManagerSettings S23_ATAK_WidgetSettings {
+    StringTables {
+     StringTableDefinition S23_ATAK_Strings {
+      StringTableSource "{A8DE07D09737E16E}Language/S23_ATAK.st"
+      Languages {
+       LanguageDefinition S23_ATAK_English {
+        Code "en_us"
+        StringTableRuntime "{7B07C1CD635BAAC1}Language/S23_ATAK.en_us.conf"
+       }
+      }
+     }
+    }
+   }
+  }
+  GameProjectConfig HEADLESS {
+   WidgetManagerSettings WidgetManagerSettings S23_ATAK_WidgetSettings {
+    StringTables {
+     StringTableDefinition S23_ATAK_Strings {
+      StringTableSource "{A8DE07D09737E16E}Language/S23_ATAK.st"
+      Languages {
+       LanguageDefinition S23_ATAK_English {
+        Code "en_us"
+        StringTableRuntime "{7B07C1CD635BAAC1}Language/S23_ATAK.en_us.conf"
+       }
+      }
+     }
+    }
+   }
+  }
+ }
 }

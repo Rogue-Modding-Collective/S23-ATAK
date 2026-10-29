@@ -1,0 +1,34 @@
+GenericEntity : "{C3958C367D545554}Prefabs/Items/S23_ATAK.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  SCR_EditableEntityComponent "{6ABB0A2551A25918}" : "{996046FE206C699A}Prefabs/Editor/Components/Default_SCR_EditableEntityComponent.ct" {
+   m_EntityType ITEM
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "#S23ATAK-EditableEntity_S23_ATAK_Name"
+    m_Image "{07721E5B728D366B}UI/Textures/EditorPreviews/Auto/Items/armareforger-editorPreviewTemplate.edds"
+    m_aAuthoredLabels {
+     CONTENT_MODDED
+    }
+    m_aAutoLabels {
+     ENTITYTYPE_OBJECT SIZE_XS
+    }
+   }
+  }
+  SCR_PreviewEntityComponent "{6ABB0A2551A2940F}" : "{6CADA7A88A6265FD}Prefabs/Editor/Components/PreviewEntityComponentClass.ct" {
+   m_bRuntime 1
+   m_aEntries {
+    SCR_BasePreviewEntry "{6ABB0A2551A2902C}" {
+     m_iParentID -1
+     m_Mesh "{10E797F0D6647317}Assets/Props/ATAK_Phone.xob"
+     m_Flags EDITABLE
+     m_Shape MESH
+     m_iPivotID ""
+     m_vScale 1 1 1
+     m_vPosition 0 0 0
+     m_vAngles 0 0 0
+    }
+   }
+  }
+ }
+ coords 6447.787 162.867 6485.756
+}

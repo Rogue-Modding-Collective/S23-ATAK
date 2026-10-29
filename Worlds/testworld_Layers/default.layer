@@ -19,6 +19,17 @@ PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/Perc
 SCR_GameModeEditor GameMode_Editor_Full : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
  coords 6120.51 157.4 6278.017
 }
+GenericEntity : "{4C1046CB61109F68}PrefabsEditable/Auto/Items/E_S23_ATAK.et" {
+ components {
+  SCR_EditableEntityComponent "{6ABB0A27C3420722}" {
+   m_EntityType ITEM
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "#AR-EditableENtity_S23_ATAK"
+   }
+  }
+ }
+ coords 6450.794 162.867 6485.64
+}
 GenericEntity : "{C3958C367D545554}Prefabs/Items/S23_ATAK.et" {
  coords 6447.372 162.867 6485.347
 }
